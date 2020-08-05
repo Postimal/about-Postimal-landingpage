@@ -1,0 +1,138 @@
+@include mediaSm {
+  figure {
+    width: 80%;
+    height: auto;
+  }
+  .hero-section {
+    margin-top: 20px;
+    padding: 0 5px;
+  }
+
+  .hero {
+    &__header {
+      margin-left: 20px;
+      padding: 20px 0;
+    }
+  }
+}
+
+@include mediaLg {
+  .hero-section {
+    position: relative;
+    height: 1400px;
+    // z-index: -1;
+  }
+
+  .hero {
+    &__header {
+      position: sticky;
+      top: 200px;
+      width: 40%;
+      padding: 50px 50px 250px 100px;
+    }
+
+    &__heading {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    &__para {
+      font-size: 1.2rem;
+      line-height: 2rem;
+    }
+
+    &__images-section {
+      position: absolute;
+      top: 400px;
+      left: 40%;
+      display: flex;
+      width: 60%;
+      padding: 3vw;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .images-1col {
+        height: 620px;
+      }
+      .images-2col {
+        height: 500px;
+      }
+
+      .hero__item {
+        margin: 150px 0;
+      }
+
+      .hero__item-wrapper {
+        position: relative;
+
+        &:hover {
+          cursor: pointer;
+
+          & .hero__details {
+            opacity: 1;
+          }
+        }
+      }
+
+      .hero__details {
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        left: 5px;
+        right: 5px;
+        padding: 8px;
+        transition: opacity 0.4s ease-in-out 0.2s;
+        opacity: 0;
+        background-color: $darkGrey;
+        color: #fff;
+      }
+
+      .hero__modal-trigger {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        padding: 5px;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        font-size: 2rem;
+        transition: background 0.2s ease-in-out 0.2s;
+        @include flex-cc;
+
+        &:hover {
+          background: rgba(250, 200, 250, 0.8);
+        }
+      }
+
+      .hero__modalbox {
+        visibility: hidden;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 50px;
+        width: 70px;
+        border: thin solid red;
+        background-color: #ddd;
+
+        &.is-open {
+          visibility: visible;
+        }
+      }
+
+      figure {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25vw;
+
+        .hero__img {
+          width: 100%;
+          height: auto;
+          border: thin #e4dddd solid;
+          padding: 4px;
+          filter: grayscale(0.3);
+        }
+      }
+    }
+  }
+}

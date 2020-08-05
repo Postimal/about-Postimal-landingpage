@@ -81,21 +81,18 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/navi.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/hero.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/navi.js":
+/***/ "./src/js/hero.js":
 /*!************************!*\
-  !*** ./src/js/navi.js ***!
+  !*** ./src/js/hero.js ***!
   \************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -108,119 +105,29 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+var heroContainer = document.querySelector('[data-hero-images]');
 
+var heroModals = _toConsumableArray(document.querySelectorAll('[data-hero-modal]'));
 
-var navItems = _toConsumableArray(document.querySelectorAll('.nav-link'));
-
-var subnavItems = _toConsumableArray(document.querySelectorAll('.subnav-content'));
-
-var naviContainer = document.querySelector('[header-container]');
-
-var addClass = function addClass(item, className) {
-  return item.classList.add(className);
-};
-
-var removeClass = function removeClass(item, className) {
-  return item.classList.remove(className);
-};
-
-function disableScroll() {
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  window.onscroll = function () {
-    window.scrollTo(0, scrollTop);
-  };
-}
-
-function enableScroll() {
-  window.onscroll = function () {};
-}
-
-var triggerSubnav = function triggerSubnav(item) {
-  if (item.classList.contains('active')) {
-    removeClass(item, 'active');
-    document.body.classList.remove('menu-active');
-    enableScroll();
-  } else {
-    subnavItems.forEach(function (el) {
-      return removeClass(el, 'active');
-    });
-    addClass(item, 'active');
-    document.body.classList.add('menu-active');
-    disableScroll();
-  }
-};
-
-var targetElement = function targetElement(e) {
-  var menuTarget = e.target.dataset.menuTarget;
-  var hoveredSubnav = subnavItems.find(function (el) {
-    return el.dataset.menu === menuTarget;
+var hideModals = function hideModals() {
+  return heroModals.forEach(function (modal) {
+    return modal.classList.remove('is-open');
   });
-  return hoveredSubnav;
 };
 
-var showSubnav = function showSubnav(e) {
-  var targetEl = targetElement(e);
-  triggerSubnav(targetEl);
-};
+var toggleHeroModal = function toggleHeroModal(_ref) {
+  var target = _ref.target;
 
-var lastTopPosition = 0;
-
-var toggleNaviOnScroll = function toggleNaviOnScroll() {
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (lastTopPosition < scrollTop) {
-    naviContainer.style.top = '-100px';
-    document.body.classList.remove('menu-visible');
+  if (target.classList.contains('hero__modal-trigger')) {
+    target.nextElementSibling.classList.add('is-open');
   } else {
-    naviContainer.style.top = '-0';
-    document.body.classList.add('menu-visible');
+    hideModals();
   }
-
-  lastTopPosition = scrollTop;
 };
 
-window.addEventListener('scroll', Object(_utils__WEBPACK_IMPORTED_MODULE_0__["debounce"])(toggleNaviOnScroll, 20));
-navItems.forEach(function (el) {
-  return el.addEventListener('click', showSubnav);
-});
-
-/***/ }),
-
-/***/ "./src/js/utils.js":
-/*!*************************!*\
-  !*** ./src/js/utils.js ***!
-  \*************************/
-/*! exports provided: debounce, add */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "add", function() { return add; });
-var debounce = function debounce(func, wait, immediate) {
-  var timeout;
-  return function () {
-    var context = this; // eslint-disable-next-line prefer-rest-params
-
-    var args = arguments;
-
-    var later = function later() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-};
-var add = function add(a, b) {
-  return a + b;
-};
+heroContainer.addEventListener('click', toggleHeroModal);
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=navi.bundle.js.map
+//# sourceMappingURL=hero.bundle.js.map

@@ -13,18 +13,33 @@
     "> 1%",
     "IE 11"
   ],
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ]
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "autoprefixer": "^9.8.5",
+    "babel-eslint": "^9.0.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-wesbos": "0.0.19",
+    "eslint-plugin-html": "^5.0.5",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
+    "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",

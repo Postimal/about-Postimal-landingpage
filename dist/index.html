@@ -1,178 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canvas20</title>
-</head>
-<body>
-  <header class="header-container">
-    <div class="header-wrapper">
-      <div class="logo">
-        <img src="./assets/logoCanvas.png" alt="Canvas logo" class="logo__img">
-      </div>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li class="nav-list__item">
-            <a href="#" class="nav-link" data-menu-target='1'>home</a>
-          </li>
-          <li class="nav-list__item">
-            <a href="#" class="nav-link" data-menu-target='2'>about</a>
-          </li>
-          <li class="nav-list__item">
-            <a href="#" class="nav-link" data-menu-target='3'>projects</a>
-          </li>
-          <li class="nav-list__item">
-            <a href="#" class="nav-link" data-menu-target='4'>skills</a>
-          </li>
-          <li class="nav-list__item">
-            <a href="./dist/contact.html" class="nav-link" data-menu-target='5'>contact</a>
-          </li>
-        </ul>
-        <div class="menu-wrapper">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+      rel="stylesheet"
+    />
+    <title>Canvas20</title>
+  </head>
+  <body>
+    <header header-container class="header-container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <img
+            loading="lazy"
+            src="./assets/logoCanvas.png"
+            alt="Canvas logo"
+            class="logo__img"
+          />
         </div>
-        <div class="subnav">
-          <div class="subnav-content" data-menu="1">
-            <div class="subnav-content__links">
-              <ul>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                  <ul class="subnav__inner-nav">
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                  <ul class="subnav__inner-nav">
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                </li>
-              </ul>
-            </div>
-            <div class="subnav-content__image">
-              <img src="https://via.placeholder.com/300" alt="Canvas logo" class="logo__img">
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-list__item">
+              <button class="nav-link" data-menu-target="1">home</button>
+            </li>
+            <li class="nav-list__item">
+              <button class="nav-link" data-menu-target="2">about</button>
+            </li>
+            <li class="nav-list__item">
+              <button class="nav-link" data-menu-target="3">projects</button>
+            </li>
+            <li class="nav-list__item">
+              <button class="nav-link" data-menu-target="4">skills</button>
+            </li>
+            <li class="nav-list__item">
+              <a
+                href="./dist/contact.html"
+                class="nav-link"
+                data-menu-target="5"
+                >contact</a
+              >
+            </li>
+          </ul>
+          <div class="menu-wrapper">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
-          <div class="subnav-content" data-menu="2">
-            <div class="subnav-content__links">
-              <ul>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                </li>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                  <ul class="subnav__inner-nav">
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                </li>
-              </ul>
+          <div class="subnav">
+            <div class="subnav-content" data-menu="1">
+              <div class="subnav-content__links">
+                <ul>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies</a
+                    >
+                    <ul class="subnav__inner-nav">
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">apple</a>
+                      </li>
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">banana</a>
+                      </li>
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">egg</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >days</a
+                    >
+                    <ul class="subnav__inner-nav">
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">mon</a>
+                      </li>
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">thus</a>
+                      </li>
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">wendes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >week</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="subnav-content__image">
+                <img
+                  loading="lazy"
+                  src="./assets/smartphonesView1_img.jpg"
+                  alt="modern smartphones shop"
+                  class="logo__img"
+                />
+              </div>
             </div>
-            <div class="subnav-content__image">
-              <img src="https://via.placeholder.com/300" alt="Canvas logo" class="logo__img">
+            <div class="subnav-content" data-menu="2">
+              <div class="subnav-content__links">
+                <ul>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbiesowon</a
+                    >
+                  </li>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies long</a
+                    >
+                    <ul class="subnav__inner-nav">
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">apple</a>
+                      </li>
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">apple2</a>
+                      </li>
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">apple3</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="subnav-content__image">
+                <img
+                  loading="lazy"
+                  src="./assets/smartphonesView1_img.jpg"
+                  alt="modern smartphones shop"
+                  class="logo__img"
+                />
+              </div>
+            </div>
+            <div class="subnav-content" data-menu="3">
+              <div class="subnav-content__links">
+                <ul>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies</a
+                    >
+                  </li>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies</a
+                    >
+                  </li>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies</a
+                    >
+                    <ul class="subnav__inner-nav">
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">apple</a>
+                      </li>
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">apple</a>
+                      </li>
+                      <li class="subnav__inner-nav-item">
+                        <a href="#">apple</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="subnav-content__image">
+                <img
+                  loading="lazy"
+                  src="./assets/react-movieDB_img.jpeg"
+                  alt="movie database Ip man at carousel"
+                  class="logo__img"
+                />
+              </div>
+            </div>
+            <div class="subnav-content" data-menu="4">
+              <div class="subnav-content__links">
+                <ul>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies</a
+                    >
+                  </li>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies</a
+                    >
+                  </li>
+                  <li class="subnav__item">
+                    <a href="./dist/about/#hobbies.html" class="subnav-link"
+                      >hobbies</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="subnav-content__image">
+                <img
+                  loading="lazy"
+                  src="./assets/twitch-reactBoard_img.jpeg"
+                  alt="games and streams tiles from twitch"
+                  class="logo__img"
+                />
+              </div>
             </div>
           </div>
-          <div class="subnav-content" data-menu="3">
-            <div class="subnav-content__links">
-              <ul>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                </li>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                </li>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                  <ul class="subnav__inner-nav">
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                    <li class="subnav__inner-nav-item">
-                      <a href="#" >apple</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div class="subnav-content__image">
-              <img src="https://via.placeholder.com/300" alt="Canvas logo" class="logo__img">
-            </div>
-          </div>
-          <div class="subnav-content" data-menu="4">
-            <div class="subnav-content__links">
-              <ul>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                </li>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                </li>
-                <li>
-                  <a href="./dist/about/#hobbies.html" class="subnav-link">hobbies</a>
-                </li>
-              </ul>
-            </div>
-            <div class="subnav-content__image">
-              <img src="https://via.placeholder.com/300" alt="Canvas logo" class="logo__img">
-            </div>
-          </div>
-        </div>
-
-        <a href="./dist/projects.html" class="yt-link">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
-            <defs>
-                <path id="criclePath" d=" M 150, 150 m -120, 0 a 120,120 0 0,1 240,0 a 120,120 0 0,1 -240,0 "/>
-            </defs>
-            <g>
-                <use xlink:href="#criclePath" fill="none"/>
+          <a href="./dist/projects.html" class="yt-link">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="300px"
+              height="300px"
+              viewBox="0 0 300 300"
+              enable-background="new 0 0 300 300"
+              xml:space="preserve"
+            >
+              <defs>
+                <path
+                  id="criclePath"
+                  d=" M 150, 150 m -120, 0 a 120,120 0 0,1 240,0 a 120,120 0 0,1 -240,0 "
+                />
+              </defs>
+              <g>
+                <use xlink:href="#criclePath" fill="none" />
                 <text fill="#000" dx="20">
-                    <textPath xlink:href="#criclePath">see more • see more • see more •</textPath>
+                  <textPath xlink:href="#criclePath">
+                    see more • see more • see more •
+                  </textPath>
                 </text>
-            </g>
-        </svg>
-        </a>
-
-        
-      </nav>
-    </div>
-  </header>
-
-<script src="js/app.bundle.js"></script><script src="js/navi.bundle.js"></script></body>
+              </g>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main class="main-container">
+      <!--  HERO SECTION -->
+      <section class="hero-section">
+        <div class="hero__header">
+          <h1 class="hero__heading">Hi, I'm Michal</h1>
+          <p class="hero__para">
+            Junior frontend developer at Cheil Poland working on Samsung Pages
+            to fulfill client will. I'm a huge frontend fun from 2018,
+            VanillaJS, (React(classes + hooks) & Redux, SCSS, CSS in JS) - in
+            side projects. Aspiring to regular/mid in 2021
+          </p>
+        </div>
+        <div data-hero-images class="hero__images-section">
+          <div class="images-1col">
+            <div class="hero__item">
+              <div class="hero__item-wrapper">
+                <figure>
+                  <img
+                    class="hero__img"
+                    loading="lazy"
+                    src="./assets/react-movieDB_img.jpeg"
+                    alt="movie database Ip man at carousel"
+                  />
+                </figure>
+                <p class="hero__details">
+                  React App buld with react classess...eact App buld with react
+                  classess...eact App buld with react classess...
+                </p>
+                <span class="hero__modal-trigger" role="button" tabindex="0">
+                  +
+                </span>
+                <div data-hero-modal class="hero__modalbox">
+                  <a>code</a>
+                  <a>live</a>
+                </div>
+              </div>
+            </div>
+            <div class="hero__item">
+              <div class="hero__item-wrapper">
+                <figure>
+                  <img
+                    class="hero__img"
+                    loading="lazy"
+                    src="./assets/smartphonesView1_img.jpg"
+                    alt="modern smartphones shop"
+                  />
+                </figure>
+                <p class="hero__details">
+                  React App buld with react classess...eact App buld with react
+                  classess...eact App buld with react classess...
+                </p>
+                <span class="hero__modal-trigger" role="button" tabindex="0">
+                  +
+                </span>
+                <div data-hero-modal class="hero__modalbox">
+                  <a>code</a>
+                  <a>live</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="images-2col">
+            <div class="hero__item">
+              <div class="hero__item-wrapper">
+                <figure>
+                  <img
+                    class="hero__img"
+                    loading="lazy"
+                    src="./assets/smartphonesView1_img.jpg"
+                    alt="modern smartphones shop"
+                  />
+                </figure>
+              </div>
+            </div>
+            <div class="hero__item">
+              <div class="hero__item-wrapper">
+                <figure>
+                  <img
+                    class="hero__img"
+                    loading="lazy"
+                    src="./assets/twitch-reactBoard_img.jpeg"
+                    alt="games and streams tiles from twitch"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SOCIAL MEDIA PROFILES -->
+      <section
+        style="height: 800px; background-color: aqua; position: relative;"
+      >
+        <div class="icon top">
+          <div class="dropdownBackground">
+            <span class="arrow"></span>
+          </div>
+          <ul class="cool">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/micha%C5%82-postek-349aaa162/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-linkedin fa-2x"></i>
+              </a>
+              <ul class="dropdown dropdown1">
+                <li>Expanding business profile</li>
+                <li>I want to be part of dev society</li>
+                <li>Maybe one day we will work together</li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="https://github.com/Postimal"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-github-square fa-2x"></i>
+              </a>
+              <div class="dropdown dropdown2">
+                <div class="github">
+                  <ul class="column">
+                    <li class="github-list-item" data-name="My-Real-Portfolio">
+                      My Real Portfolio
+                      <div class="github-list-item__box" style="float: right">
+                        <span class="text-secondary fetch-data">?</span> commits
+                        <span class="text-secondary">?</span> latest update
+                      </div>
+                    </li>
+                    <li class="github-list-item" data-name="Twitch-API">
+                      Twitch-API
+                      <div class="github-list-item__box" style="float: right">
+                        <span class="text-secondary fetch-data">?</span> commits
+                        <span class="text-secondary">?</span> latest update
+                      </div>
+                    </li>
+                    <li class="github-list-item" data-name="react-moviedb">
+                      react-moviedb
+                      <div class="github-list-item__box" style="float: right">
+                        <span class="text-secondary fetch-data">?</span> commits
+                        <span class="text-secondary">?</span> latest update
+                      </div>
+                    </li>
+                    <li
+                      class="last github-list-item"
+                      data-name="smartphones-shop"
+                    >
+                      smartphones-shop
+                      <div class="github-list-item__box" style="float: right">
+                        <span class="text-secondary fetch-data">?</span> commits
+                        <span class="text-secondary">?</span> latest update
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                href="mailto:michal.postek1@wp.pl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-envelope-square fa-2x"></i>
+              </a>
+              <ul class="dropdown dropdown3">
+                <li>Message me</li>
+                <li>Ask about cooperation</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  <script src="js/app.bundle.js"></script><script src="js/navi.bundle.js"></script><script src="js/hero.bundle.js"></script><script src="js/social.bundle.js"></script><script src="js/utils.bundle.js"></script></body>
 </html>

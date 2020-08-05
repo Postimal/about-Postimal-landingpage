@@ -1,64 +1,61 @@
+import { debounce } from './utils';
+
 const navItems = [...document.querySelectorAll('.nav-link')];
 const subnavItems = [...document.querySelectorAll('.subnav-content')];
-let timer;
+const naviContainer = document.querySelector('[header-container]');
 
-function addClass(item,className) {
-  item.classList.add(className)
+const addClass = (item, className) => item.classList.add(className);
+
+const removeClass = (item, className) => item.classList.remove(className);
+
+function disableScroll() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  window.onscroll = function() {
+    window.scrollTo(0, scrollTop);
+  };
 }
 
-function removeClass(item,className) {
-  item.classList.remove(className)
+function enableScroll() {
+  window.onscroll = function() {};
 }
 
-function triggerSubnav(item) {
-  if ( item.classList.contains('active')) {
-    removeClass(item,'active');
+const triggerSubnav = item => {
+  if (item.classList.contains('active')) {
+    removeClass(item, 'active');
     document.body.classList.remove('menu-active');
-  } else { 
-    subnavItems.forEach(el => removeClass(el,'active'));
-    addClass(item,'active');
+    enableScroll();
+  } else {
+    subnavItems.forEach(el => removeClass(el, 'active'));
+    addClass(item, 'active');
     document.body.classList.add('menu-active');
+    disableScroll();
   }
-}
+};
 
-// function triggerShowSubnav(item) {
-//     subnavItems.forEach(el => removeClass(el,'active'));
-//     timer = setTimeout(
-//       () => {
-//       addClass(item,'active');
-//       document.body.classList.add('menu-active');
-//       },350
-//     ) 
-// }
-
-// function triggerHideSubnav(item) {
-//     clearTimeout(timer);
-//     subnavItems.forEach(el => removeClass(el,'active'))
-//     document.body.classList.remove('menu-active');
-// }
-
-function targetElement(e){
-  const menuTarget = e.target.dataset.menuTarget;
+const targetElement = e => {
+  const { menuTarget } = e.target.dataset;
   const hoveredSubnav = subnavItems.find(el => el.dataset.menu === menuTarget);
   return hoveredSubnav;
-}
+};
 
-function showSubnav(e) {            // fn do clicka
-  const targetEl = targetElement(e)
+const showSubnav = e => {
+  const targetEl = targetElement(e);
   triggerSubnav(targetEl);
- }
+};
 
-// function showSubnav(e) {            // fn do mouseenter
-//  const targetEl = targetElement(e)
-//  triggerShowSubnav(targetEl);
-// }
+let lastTopPosition = 0;
 
-// function hideSubnav(e) {          // fn fd mouseleave
-//   const targetEl = targetElement(e)
-//   triggerHideSubnav(targetEl);
-//  }
+const toggleNaviOnScroll = () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (lastTopPosition < scrollTop) {
+    naviContainer.style.top = '-100px';
+    document.body.classList.remove('menu-visible');
+  } else {
+    naviContainer.style.top = '-0';
+    document.body.classList.add('menu-visible');
+  }
+  lastTopPosition = scrollTop;
+};
 
- navItems.forEach(el => el.addEventListener('click', showSubnav))
-
-// navItems.forEach(el => el.addEventListener('mouseenter', showSubnav))
-// navItems.forEach(el => el.addEventListener('mouseleave', hideSubnav))
+window.addEventListener('scroll', debounce(toggleNaviOnScroll, 20));
+navItems.forEach(el => el.addEventListener('click', showSubnav));
