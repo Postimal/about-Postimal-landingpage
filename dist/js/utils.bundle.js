@@ -100,8 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 var debounce = function debounce(func, wait, immediate) {
   var timeout;
   return function () {
-    var context = this; // eslint-disable-next-line prefer-rest-params
-
+    var context = this;
     var args = arguments;
 
     var later = function later() {

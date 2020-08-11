@@ -1,7 +1,6 @@
 const triggers = document.querySelectorAll('.cool > li');
 const background = document.querySelector('.dropdownBackground');
 const hookPoint = document.querySelector('.top');
-
 const githubList = document.querySelector('.github');
 
 class Repo {
@@ -12,24 +11,23 @@ class Repo {
   }
 }
 
-const fetchData = async e => {
-  const repoName = e.target.dataset.name;
+const fetchData = async ({ target }) => {
+  const repoName = target.dataset.name;
   const res = await fetch(
     `https://api.github.com/repos/Postimal/${repoName}/commits`
   );
   const data = await res.json();
 
-  const repoInfo = new Repo(e.target.dataset.name, data.length);
+  const repoInfo = new Repo(target.dataset.name, data.length);
   repoInfo.data = data[0].commit.author.date.toLocaleString().slice(0, 10);
 
-  const output = `  <span class="text-secondary fetch-data">${
-    repoInfo.length ? repoInfo.length : 'limit zapytań'
-  }</span> commits
-                    <span class="text-secondary">${
-                      repoInfo.data
-                    }</span> latest`;
+  const output = `<span class="text-secondary fetch-data">
+                  ${repoInfo.length ? repoInfo.length : 'limit zapytań'}
+                  </span>
+                  commits
+                  <span class="text-secondary">${repoInfo.data}</span> latest`;
 
-  e.target.lastElementChild.innerHTML = output;
+  target.lastElementChild.innerHTML = output;
 };
 
 function handleEnter() {

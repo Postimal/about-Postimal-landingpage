@@ -1,0 +1,48 @@
+.skills-section {
+  padding: 150px 30px;
+  background: #000;
+
+  .technology {
+    max-width: 620px;
+    margin: 0 auto;
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 75px);
+      grid-gap: 1rem;
+      justify-items: center;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: grid;
+        width: 75px;
+        height: 75px;
+        justify-items: center;
+        align-items: center;
+        border: $lightGrey solid 1px;
+        overflow: hidden;
+        background-color: #000;
+        filter: grayscale(0.3);
+
+        &:hover {
+          border: 2px solid #fff;
+        }
+
+        i {
+          font-size: 2rem;
+        }
+
+        &:hover i {
+          color: $lightGrey;
+        }
+
+        i.first {
+          animation: rotate-360 10s infinite linear;
+        }
+      }
+    }
+  }
+}

@@ -113,29 +113,30 @@ var Repo = function Repo(name, length, data) {
 };
 
 var fetchData = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-    var repoName, res, data, repoInfo, output;
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(_ref) {
+    var target, repoName, res, data, repoInfo, output;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            repoName = e.target.dataset.name;
-            _context.next = 3;
+            target = _ref.target;
+            repoName = target.dataset.name;
+            _context.next = 4;
             return fetch("https://api.github.com/repos/Postimal/".concat(repoName, "/commits"));
 
-          case 3:
+          case 4:
             res = _context.sent;
-            _context.next = 6;
+            _context.next = 7;
             return res.json();
 
-          case 6:
+          case 7:
             data = _context.sent;
-            repoInfo = new Repo(e.target.dataset.name, data.length);
+            repoInfo = new Repo(target.dataset.name, data.length);
             repoInfo.data = data[0].commit.author.date.toLocaleString().slice(0, 10);
-            output = "  <span class=\"text-secondary fetch-data\">".concat(repoInfo.length ? repoInfo.length : 'limit zapytań', "</span> commits\n                    <span class=\"text-secondary\">").concat(repoInfo.data, "</span> latest");
-            e.target.lastElementChild.innerHTML = output;
+            output = "<span class=\"text-secondary fetch-data\">\n                  ".concat(repoInfo.length ? repoInfo.length : 'limit zapytań', "\n                  </span>\n                  commits\n                  <span class=\"text-secondary\">").concat(repoInfo.data, "</span> latest");
+            target.lastElementChild.innerHTML = output;
 
-          case 11:
+          case 12:
           case "end":
             return _context.stop();
         }
@@ -144,7 +145,7 @@ var fetchData = /*#__PURE__*/function () {
   }));
 
   return function fetchData(_x) {
-    return _ref.apply(this, arguments);
+    return _ref2.apply(this, arguments);
   };
 }();
 
