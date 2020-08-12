@@ -90,13 +90,14 @@
 /*!*************************!*\
   !*** ./src/js/utils.js ***!
   \*************************/
-/*! exports provided: debounce, add */
+/*! exports provided: debounce, add, setIntersection */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "add", function() { return add; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setIntersection", function() { return setIntersection; });
 var debounce = function debounce(func, wait, immediate) {
   var timeout;
   return function () {
@@ -116,6 +117,15 @@ var debounce = function debounce(func, wait, immediate) {
 };
 var add = function add(a, b) {
   return a + b;
+};
+var setIntersection = function setIntersection(element) {
+  var observerFn = function observerFn(entries) {
+    var elementEntry = entries[0];
+    elementEntry.isIntersecting ? element.classList.add('is-in-view') : element.classList.remove('is-in-view');
+  };
+
+  var observer = new IntersectionObserver(observerFn);
+  observer.observe(element);
 };
 
 /***/ })

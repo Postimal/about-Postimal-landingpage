@@ -54,11 +54,17 @@
   }
 }
 
+@media screen and (max-width: 1000px){
+  .header-container .header-wrapper .nav .subnav .subnav-content__image {
+   display: none;
+  }
+}
+
 @include mediaLg {
   .menu-active .header-container .header-wrapper .nav .subnav {
     background-color: $darkGrey;
     height: 400px;
-    color: $secondaryTextColor;
+    // color: $secondaryTextColor;
     border-bottom: 1px solid #555;
   }
 
@@ -146,13 +152,16 @@
           position: absolute;
           right: 0;
           left: 0;
-          margin: 40px auto;
+          margin: 34px auto;
+          color: $secondaryTextColor;
           transition: background-color 0.3s ease-in-out 0.15s,
             height 0.5s ease-in-out 0.15s;
           will-change: background-color, height;
 
           .subnav-content {
             max-height: 0;
+            max-width: 1440px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             transition: all 0.6s ease-in-out;
@@ -181,7 +190,7 @@
             }
 
             &__links {
-              margin-left: 150px;
+              margin-left: 168px;
 
               & ul {
                 max-width: 165px;

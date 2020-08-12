@@ -15,3 +15,15 @@ export const debounce = (func, wait, immediate) => {
 };
 
 export const add = (a, b) => a + b;
+
+export const setIntersection = (element) =>{
+  const observerFn = entries => {
+    let elementEntry = entries[0];
+    elementEntry.isIntersecting
+      ? element.classList.add('is-in-view')
+      : element.classList.remove('is-in-view');
+  };
+
+  let observer = new IntersectionObserver(observerFn);
+  observer.observe(element);
+}

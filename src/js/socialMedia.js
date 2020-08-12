@@ -1,7 +1,13 @@
+import { setIntersection } from './utils';
+
 const triggers = document.querySelectorAll('.cool > li');
 const background = document.querySelector('.dropdownBackground');
 const hookPoint = document.querySelector('.top');
 const githubList = document.querySelector('.github');
+const socialMediaBox = document.querySelector('ul.cool');
+
+setIntersection(socialMediaBox);
+
 
 class Repo {
   constructor(name, length, data) {

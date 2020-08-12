@@ -8,6 +8,7 @@ module.exports = {
     navi: './src/js/navi.js',
     hero: './src/js/hero.js',
     social: './src/js/socialMedia.js',
+    skills: './src/js/skills.js',
     utils: './src/js/utils.js',
   },
   output: {

@@ -27,10 +27,11 @@ observer.observe(heroContainer);
 
 const changeBackground = () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const opacityPromile = 1400 / 1000000;
-  const finalOpacity = scrollTop * opacityPromile;
+  const {height: containerHeight} = heroContainer.getBoundingClientRect();
+  const opacityPromile = containerHeight / 1000000;
+  const finalOpacity = (scrollTop/1.4) * opacityPromile;
   backgroundLayer.style.opacity = 1 - finalOpacity;
-  finalOpacity < 0.5
+  finalOpacity < 0.4
     ? (heroHeaderText.style.color = '#fff')
     : (heroHeaderText.style.color = '#000');
 };

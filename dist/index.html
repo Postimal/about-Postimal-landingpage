@@ -11,7 +11,7 @@
       rel="stylesheet"
       href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"
     />
-    <link rel="stylesheet" href="css/main.css" />
+    <!-- <link rel="stylesheet" href="css/main.css" /> -->
     <title>Canvas20</title>
   </head>
   <body>
@@ -251,8 +251,9 @@
     </header>
     <main class="main-container">
       <!--  HERO SECTION -->
-      <section class="hero-section">
-        <div class="hero__header">
+      <section data-hero-container class="hero-section">
+        <span data-change-bg class="change-bg"></span>
+        <div data-hero-header class="hero__header">
           <h1 class="hero__heading">Hi, I'm Michal</h1>
           <p class="hero__para">
             Junior frontend developer at Cheil Poland working on Samsung Pages
@@ -421,8 +422,9 @@
           </ul>
         </div>
       </section>
+      <!-- SKILL SECTION  -->
       <section class="skills-section">
-        <div class="technology">
+        <div data-technology-box  class="technology">
           <ul class="technology__list">
             <li><i class="devicon-html5-plain colored"></i></li>
             <li><i class="devicon-css3-plain colored"></i></li>
@@ -440,6 +442,9 @@
           </ul>
         </div>
       </section>
+      <footer style="height: 500px">
+
+      </footer>
     </main>
-  <script src="js/app.bundle.js"></script><script src="js/navi.bundle.js"></script><script src="js/hero.bundle.js"></script><script src="js/social.bundle.js"></script><script src="js/utils.bundle.js"></script></body>
+  <script src="js/app.bundle.js"></script><script src="js/navi.bundle.js"></script><script src="js/hero.bundle.js"></script><script src="js/social.bundle.js"></script><script src="js/skills.bundle.js"></script><script src="js/utils.bundle.js"></script></body>
 </html>

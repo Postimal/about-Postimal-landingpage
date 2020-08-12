@@ -90,19 +90,25 @@
 /*!*******************************!*\
   !*** ./src/js/socialMedia.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+
 var triggers = document.querySelectorAll('.cool > li');
 var background = document.querySelector('.dropdownBackground');
 var hookPoint = document.querySelector('.top');
 var githubList = document.querySelector('.github');
+var socialMediaBox = document.querySelector('ul.cool');
+Object(_utils__WEBPACK_IMPORTED_MODULE_0__["setIntersection"])(socialMediaBox);
 
 var Repo = function Repo(name, length, data) {
   _classCallCheck(this, Repo);
@@ -185,6 +191,50 @@ triggers.forEach(function (trigger) {
 githubList.addEventListener('mouseover', function (e) {
   return e.target.classList.contains('github-list-item') && fetchData(e);
 });
+
+/***/ }),
+
+/***/ "./src/js/utils.js":
+/*!*************************!*\
+  !*** ./src/js/utils.js ***!
+  \*************************/
+/*! exports provided: debounce, add, setIntersection */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "add", function() { return add; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setIntersection", function() { return setIntersection; });
+var debounce = function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this;
+    var args = arguments;
+
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+var add = function add(a, b) {
+  return a + b;
+};
+var setIntersection = function setIntersection(element) {
+  var observerFn = function observerFn(entries) {
+    var elementEntry = entries[0];
+    elementEntry.isIntersecting ? element.classList.add('is-in-view') : element.classList.remove('is-in-view');
+  };
+
+  var observer = new IntersectionObserver(observerFn);
+  observer.observe(element);
+};
 
 /***/ })
 

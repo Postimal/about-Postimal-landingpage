@@ -2,7 +2,6 @@
   .social-media-section {
     min-height: 450px;
     padding-top: 100px;
-    background: #000;
   }
   .icon.top {
     position: relative;
@@ -11,15 +10,15 @@
       width: 100px;
       height: 100px;
       position: absolute;
-      background: #000;
+      background: $greyishColor;
       border-radius: 4px;
       transition: all 0.3s, opacity 0.1s, transform 0.2s;
       transform-origin: 50% 0;
       display: flex;
       justify-content: center;
-      border: 2px solid $darkGrey;
-      border-bottom: 2px solid #fff;
+      border-bottom: 2px solid $darkGrey;
       opacity: 0;
+      will-change: opacity;
 
       &.open {
         opacity: 1;
@@ -30,7 +29,7 @@
         width: 20px;
         height: 20px;
         display: block;
-        background: #000;
+        background: $greyishColor;
         transform: translateY(-50%) rotate(45deg);
       }
     }
@@ -42,6 +41,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transform: scale(0);
+
+      &.is-in-view {
+        animation: scale-up-ver-center 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation-delay: 0.2s;
+      }
 
       & > li {
         display: flex;
@@ -60,10 +65,10 @@
         position: relative;
         padding: 1rem;
         font-size: 22px;
-        color: $lightGrey;
+        color: $lightTextColor;
 
         &:hover {
-          color: #fff;
+          color: $greyishColor;
           transition: all 0.5s ease-out;
         }
 
@@ -128,3 +133,4 @@
     }
   }
 }
+

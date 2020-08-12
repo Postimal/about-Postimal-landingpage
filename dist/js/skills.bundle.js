@@ -81,77 +81,70 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/hero.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/skills.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/hero.js":
-/*!************************!*\
-  !*** ./src/js/hero.js ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./src/js/skills.js":
+/*!**************************!*\
+  !*** ./src/js/skills.js ***!
+  \**************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+var technologyBox = document.querySelector('[data-technology-box]');
+Object(_utils__WEBPACK_IMPORTED_MODULE_0__["setIntersection"])(technologyBox);
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+/***/ }),
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+/***/ "./src/js/utils.js":
+/*!*************************!*\
+  !*** ./src/js/utils.js ***!
+  \*************************/
+/*! exports provided: debounce, add, setIntersection */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "add", function() { return add; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setIntersection", function() { return setIntersection; });
+var debounce = function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this;
+    var args = arguments;
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
 
-var heroImagesContainer = document.querySelector('[data-hero-images]');
-
-var heroModals = _toConsumableArray(document.querySelectorAll('[data-hero-modal]'));
-
-var backgroundLayer = document.querySelector('[data-change-bg');
-var heroHeaderText = document.querySelector('[data-hero-header');
-var heroContainer = document.querySelector('[data-hero-container');
-
-var hideModals = function hideModals() {
-  return heroModals.forEach(function (modal) {
-    return modal.classList.remove('is-open');
-  });
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
 };
-
-var toggleHeroModal = function toggleHeroModal(_ref) {
-  var target = _ref.target;
-
-  if (target.classList.contains('hero__modal-trigger')) {
-    target.nextElementSibling.classList.add('is-open');
-  } else {
-    hideModals();
-  }
+var add = function add(a, b) {
+  return a + b;
 };
+var setIntersection = function setIntersection(element) {
+  var observerFn = function observerFn(entries) {
+    var elementEntry = entries[0];
+    elementEntry.isIntersecting ? element.classList.add('is-in-view') : element.classList.remove('is-in-view');
+  };
 
-var observerFn = function observerFn(entries) {
-  var heroContainerEntry = entries[0];
-  heroContainerEntry.isIntersecting ? window.addEventListener('scroll', changeBackground) : window.removeEventListener('scroll', changeBackground);
+  var observer = new IntersectionObserver(observerFn);
+  observer.observe(element);
 };
-
-var observer = new IntersectionObserver(observerFn);
-observer.observe(heroContainer);
-
-var changeBackground = function changeBackground() {
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  var _heroContainer$getBou = heroContainer.getBoundingClientRect(),
-      containerHeight = _heroContainer$getBou.height;
-
-  var opacityPromile = containerHeight / 1000000;
-  var finalOpacity = scrollTop / 1.4 * opacityPromile;
-  backgroundLayer.style.opacity = 1 - finalOpacity;
-  finalOpacity < 0.4 ? heroHeaderText.style.color = '#fff' : heroHeaderText.style.color = '#000';
-};
-
-heroImagesContainer.addEventListener('click', toggleHeroModal);
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=hero.bundle.js.map
+//# sourceMappingURL=skills.bundle.js.map
