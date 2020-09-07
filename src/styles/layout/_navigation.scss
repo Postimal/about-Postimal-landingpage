@@ -116,6 +116,10 @@
               text-transform: uppercase;
               outline: none;
 
+              &::first-letter {
+                font-size: 13px;
+              }
+
               &:hover {
                 cursor: pointer;
               }

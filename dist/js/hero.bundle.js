@@ -112,6 +112,7 @@ var heroModals = _toConsumableArray(document.querySelectorAll('[data-hero-modal]
 var backgroundLayer = document.querySelector('[data-change-bg');
 var heroHeaderText = document.querySelector('[data-hero-header');
 var heroContainer = document.querySelector('[data-hero-container');
+var previousHeroElement;
 
 var hideModals = function hideModals() {
   return heroModals.forEach(function (modal) {
@@ -123,7 +124,14 @@ var toggleHeroModal = function toggleHeroModal(_ref) {
   var target = _ref.target;
 
   if (target.classList.contains('hero__modal-trigger')) {
-    target.nextElementSibling.classList.add('is-open');
+    if (target.parentElement === previousHeroElement) {
+      target.nextElementSibling.classList.toggle('is-open');
+    } else {
+      hideModals();
+      target.nextElementSibling.classList.add('is-open');
+    }
+
+    previousHeroElement = target.parentElement;
   } else {
     hideModals();
   }
@@ -137,7 +145,12 @@ var observerFn = function observerFn(entries) {
 var observer = new IntersectionObserver(observerFn);
 observer.observe(heroContainer);
 
+var checkIfNavIsOpen = function checkIfNavIsOpen() {
+  return document.body.classList.contains('menu-active') || false;
+};
+
 var changeBackground = function changeBackground() {
+  if (checkIfNavIsOpen()) return;
   var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   var _heroContainer$getBou = heroContainer.getBoundingClientRect(),

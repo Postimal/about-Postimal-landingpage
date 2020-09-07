@@ -8,7 +8,6 @@ const socialMediaBox = document.querySelector('ul.cool');
 
 setIntersection(socialMediaBox);
 
-
 class Repo {
   constructor(name, length, data) {
     this.name = name;
